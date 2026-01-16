@@ -1,0 +1,21 @@
+::: {.callout-note collapse="true"}
+### Comparison of Remote Sensing Methods for Abandoned Agricultural Land (AAL) Detection
+::: {style="overflow-x: auto;"}
+::: {#tbl-methods-comparison}
+
+| Study | Approach | Study Area | Data Sources (Spatial & Temporal) | Definition of Abandonment | Methodology / Algorithm | Accuracy / Performance |
+|:---|:---|:---|:---|:---|:---|:---|
+| **Alcantara et al. (2013)** | Multi-temporal (MA) | Central & Eastern Europe | **MODIS NDVI** (250m)<br>Time-series: 2003–2009 | **Class-based (Static):** Land cultivated during socialist period but covered by successional vegetation during observation. | **SVM:** Phenological metrics (start of season, amplitude) extracted via TIMESAT. Training data upscaled from existing Landsat maps. | **Moderate**<br>~49% (Area-adjusted overall accuracy). User's Accuracy ~51%. |
+| **Estel et al. (2015)** | Multi-temporal (MA) | Europe | **MODIS NDVI** (250m)<br>Time-series: 2001–2012 | **Trajectory-based:** Land unmanaged (fallow) for **2–5 consecutive years**. Distinct from temporary fallow. | **Random Forest (RF):** Annual classification of "Active" vs. "Fallow" using normalized NDVI curves. Manual training data. | **High**<br>>~90% average overall accuracy for active/fallow distinction. |
+| **Stefanski et al. (2014)** | Classification (CA) / OBIA | Western Ukraine | **Landsat** (Optical) + **ERS SAR** (Radar)<br>Years: 1986, 1993, 1999, 2006, 2010 | **Trajectory-based:** Land cover transition (e.g., Cropland → Grassland) without recultivation events. | **OBIA + RF:** "Superpixel Contour" segmentation to delineate fields. Fusion of Optical and Radar. | **83.4%** Overall Accuracy.<br>Effective at separating fallow from active. |
+| **Löw et al. (2015)** | Classification (CA) / Fusion | Kazakhstan | **Landsat** + **RapidEye**<br>Time-series: 2009–2014 | **Trajectory-based:** Analyzed within historical field parcels. Abandonment = 5 consecutive years of shrub/bare cover. | **Decision Fusion:** Trained RF and SVM separately and fused results. Used historical vector masks. | **~97%** Overall Accuracy.<br>Fusion achieved higher accuracy than single classifiers. |
+| **Günthert et al. (2011)** | Classification (CA) / Texture | Tenerife (Canary Islands) | **RapidEye** + **High-Res Orthophotos** | **Subtraction Method:**<br>*(Total Ever-Utilized Area)* minus *(Current Active Agriculture)*. | **Texture/Edge Detection:** Canny edge detector to find "linear footprints" (terraces/walls) under vegetation. | **93.0%** Overall Accuracy<br>(Kappa = 0.854). Highly effective for terraced landscapes. |
+| **Shixin et al. (2013)** | Classification (CA) / OBIA | China | **SPOT-5** (2.5m Pan / 10m Multi) | **Land Cover Class:** Identification of abandoned land as a specific spectral/structural class. | **OBIA (Rule-based):** Edge-based segmentation + rules involving spectral signatures, shape, and texture. | **78.94%** (Abandoned Class).<br>Outperformed pixel-based methods (~59%) for complex classes. |
+| **Goodin et al. (2015)** | Classification (CA) / OBIA | Poland / Ukraine Border | **Landsat 8 OLI** (Single date) | **Land Use Distinction:** Differentiating "Pasture/Abandoned" from active "Arable" land. | **SVM within OBIA:** Combined spectral features with object geometry (shape/size). | **75%** Overall Accuracy.<br>Spatial features were essential for land use separation. |
+| **Suziedelyte-Visockiene et al. (2019)** | Classification (CA) / Segmentation | Lithuania | **Sentinel-2** (Optical) | **Verification:** Compared remote sensing results with national registry data. | **Mean-Shift Segmentation:** Clustering and Kernel density (ColorMapping) to find homogenous scrub regions. | **Varied**<br>~94% (Winter), ~75% (Summer). Validated against national datasets. |
+
+
+Table: Comparison of Remote Sensing Methods for Abandoned Agricultural Land (AAL) Detection
+:::
+:::
+:::

@@ -1,0 +1,16 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Agricultural Land Abandonment"
+  # navbar:
+  #   left:
+  #     - href: index.qmd
+  #       text: Home
+
+format:
+  html:
+    theme: darkly
+    toc: true
+    code-fold: true
