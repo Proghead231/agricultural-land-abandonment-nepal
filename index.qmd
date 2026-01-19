@@ -257,7 +257,7 @@ This method is designed specifically to address the constraints related to topog
 
 The methodology uses an OBIA landTrendr approach applied to annual class probabilities. 
 
-  1. Create agricultural land objects: The study will be carried out at object level to reduce "salt and pepper"  noise common in pixel-based methods. The multi-resolution segmentation or similar algorithm will be applied to stacked Landsat images to create agricultural land objects [@yinMappingAgriculturalLand2018].
+  1. Create agricultural land objects: The study will be carried out at object level to reduce "salt and pepper"  noise common in pixel-based methods. The multi-resolution segmentation or similar algorithm will be applied to stacked Landsat images to create agricultural land objects [@yinMappingAgriculturalLand2018]. Instead of using a single image for segmentation, [@yinMappingAgriculturalLand2018] applied the algo to stack of landsat images (Aug 1989, Sep 1998, May 2007 and Jul 2015) to create temporally homogeneous objects. They used `"bottom-up multi-resolution segmentation algorithm"` in eCognition. This approach initiates each pixel as a single segment and merges spatially adjacent segments based on their similarity until the desired scale is met.
   
       - Alternative 1: Use existing agricultural land from land cover datasets or osm or similar like [@wuMonitoringCroplandAbandonment2023].
 
