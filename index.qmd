@@ -291,8 +291,8 @@ The methodology uses an OBIA landTrendr approach applied to annual class probabi
       - Curve Fitting (Segmentation): The algorithm attempts to fit a series of straight lines (segments) to the probability history. It simplifies the complex year-to-year data into stable periods (plateaus) and changing periods (transitions)
 
    4. Identify Structural Breaks and Classify Each Object into "AAL", "Recultivated", or "Fallow": The core goal of this step is to find the vertices (breakpoints) between these segments. A "structural break" indicates the exact year the land management regime changed. This is the specific year where the trajectory shifts from a high probabilty of farming to a declining or low probability. The algorith calculates the magnitude of the change. For abandonment we look for a transition where the pre-change value is high (like >0.5) and the post change value is low (like <0.5). Finding this drop is not enough, we must distinguish abandonment from fallow (temprorary). this is done by applying a duration logic to the landTrendr segments. Following the methodologies of [@yinMappingAgriculturalLand2018] and [@daraMappingTimingCropland2018], we can classify an object as "Abandoned" only if the probability drops and remains low for 5 years.
-        ◦ Fallow: If the probability drops but recovers within 5 years, it is labeled as "Fallow" or "Rotation" rather than abandonment.
-        ◦ Recultivation: If the probability drops for >5 years but then rises again near the end of the time series, the it is labelled as "Recultivation"
+        - Fallow: If the probability drops but recovers within 5 years, it is labeled as "Fallow" or "Rotation" rather than abandonment.
+        - Recultivation: If the probability drops for >5 years but then rises again near the end of the time series, the it is labelled as "Recultivation"
 
    5. Validation: Overall Accuracy, Kappa Coefficient, Producer's Accuracy, User's Accuracy
 
