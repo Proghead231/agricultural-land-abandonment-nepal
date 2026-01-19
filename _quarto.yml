@@ -11,7 +11,9 @@ website:
 
 format:
   html:
+    css: style.css
     theme: darkly
     toc: true
     code-fold: true
     page-layout: full
+    

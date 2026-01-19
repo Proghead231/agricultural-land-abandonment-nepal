@@ -9,6 +9,7 @@ filters:
   - lastmodified.lua
 format:
   html:
+    css: style.css
     toc-location: left
     toc-depth: 3
     page-layout: full

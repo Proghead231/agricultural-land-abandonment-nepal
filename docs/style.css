@@ -1,0 +1,5 @@
+#mermaid-2 .edgePath .path,
+#mermaid-2 .flowchart-link {
+    stroke: rgb(156, 14, 14) !important;
+    stroke-width: 2px !important;
+}
