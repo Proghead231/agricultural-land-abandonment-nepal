@@ -4,16 +4,25 @@ project:
 
 website:
   title: "Agricultural Land Abandonment"
-  # navbar:
-  #   left:
-  #     - href: index.qmd
-  #       text: Home
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: analysis.qmd
+        text: Analysis & Results
+
+# Move global settings here so they apply to both index.qmd AND analysis.qmd
+bibliography: references.json
+csl: apa.csl
+filters:
+  - lastmodified.lua
 
 format:
   html:
-    css: style.css
     theme: darkly
+    css: style.css
     toc: true
+    toc-location: left
+    toc-depth: 3
     code-fold: true
     page-layout: full
-    

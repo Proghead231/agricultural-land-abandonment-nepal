@@ -44,6 +44,7 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -64,11 +65,11 @@ div.csl-indent {
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -98,11 +99,40 @@ div.csl-indent {
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="floating quarto-light">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Agricultural Land Abandonment</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./analysis.html"> 
+<span class="menu-text">Analysis &amp; Results</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -185,7 +215,7 @@ div.csl-indent {
 </section>
 <section id="methods" class="level1">
 <h1>2. Develop a method to identify AAL satisfying the definition</h1>
-<p>Literatures before 2019 were reviewed from papers cited in <span class="citation" data-cites="gogaReviewApplicationRemote2019">(<a href="#ref-gogaReviewApplicationRemote2019" role="doc-biblioref">Goga et al., 2019</a>)</span>. Papers published after 2019 were reviewed from google scholar with custom date filter and <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>. Review was non-exhaustive till 2026-01-19 12:03.</p>
+<p>Literatures before 2019 were reviewed from papers cited in <span class="citation" data-cites="gogaReviewApplicationRemote2019">(<a href="#ref-gogaReviewApplicationRemote2019" role="doc-biblioref">Goga et al., 2019</a>)</span>. Papers published after 2019 were reviewed from google scholar with custom date filter and <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>. Review was non-exhaustive till 2026-01-19 16:08.</p>
 <section id="review-of-existing-methods" class="level2">
 <h2 class="anchored" data-anchor-id="review-of-existing-methods">2.1. Review of existing methods</h2>
 <p>Based on <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>, the methods can be divided into two major categories (Image classification &amp; spectral features method and Time-dynamic &amp;trajectory method) and various sub categories.</p>
@@ -724,10 +754,6 @@ Table&nbsp;2: Table 1: Major Differences Between the Two Methods
 <p>This method is designed specifically to address the constraints related to topography of nepal, farming culture, cloud cover, time and other resources limitations, temporal coverage of freely available satellite data and so on.</p>
 <p>The methodology uses an OBIA landTrendr approach applied to annual class probabilities.</p>
 <ol type="1">
-<li><p>Create agricultural land objects: The study will be carried out at object level to reduce “salt and pepper” noise common in pixel-based methods. The multi-resolution segmentation or similar algorithm will be applied to stacked Landsat images to create agricultural land objects <span class="citation" data-cites="yinMappingAgriculturalLand2018">(<a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">Yin et al., 2018</a>)</span>. Instead of using a single image for segmentation, <span class="citation" data-cites="yinMappingAgriculturalLand2018">(<a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">Yin et al., 2018</a>)</span> applied the algo to stack of landsat images (Aug 1989, Sep 1998, May 2007 and Jul 2015) to create temporally homogeneous objects. They used <code>"bottom-up multi-resolution segmentation algorithm"</code> in eCognition. This approach initiates each pixel as a single segment and merges spatially adjacent segments based on their similarity until the desired scale is met.</p>
-<ul>
-<li>Alternative 1: Use existing agricultural land from land cover datasets or osm or similar like <span class="citation" data-cites="wuMonitoringCroplandAbandonment2023">(<a href="#ref-wuMonitoringCroplandAbandonment2023" role="doc-biblioref">Wu et al., 2023</a>)</span>. Consider all the cropland from 2000-2022 as agricultural land objects or filter out values greater than 2/3 to filter out some error/noise.</li>
-</ul></li>
 <li><p>Data Acquisition and Preprocessing: GEE and python will be used for all the analysis if possible to keep the workflow easily repeatable and well documented.</p>
 <ul>
 <li><p>Datasets: Landsat (2000-2020/2024). Need to calculate annual metrics (mean, median, growing season, etc.) for each year. For example, assuming mean NDVI as a metric, if there are 25 images in 2005, mean NDVI will be calucated pixelwise and there will be a mean NDVI image for 2005. This is repeated for each year and each selected metrics. These metrics will be fed into the RF to calculate agricultural land probability.</p></li>
@@ -742,6 +768,10 @@ Table&nbsp;2: Table 1: Major Differences Between the Two Methods
 <li><p>The sources emphasize disproportionate stratified sampling. This ensures that rare events (like the specific year of abandonment) are adequately represented in the validation pool, as a purely random sample might mostly hit stable forest or stable farm plots <span class="citation" data-cites="yinMappingAgriculturalLand2018 daraMappingTimingCropland2018">(<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">Dara et al., 2018</a>; <a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">Yin et al., 2018</a>)</span>.</p></li>
 <li><p>Source of Training Data: Researchers typically use a combination of historical Landsat imagery and high-resolution Google Earth archives to identify “stable” plots (areas that did not change during a specific window) to provide the baseline spectral signature for the classifier</p></li>
 </ul></li>
+</ul></li>
+<li><p>Create agricultural land objects: The study will be carried out at object level to reduce “salt and pepper” noise common in pixel-based methods. The multi-resolution segmentation or similar algorithm will be applied to stacked Landsat images to create agricultural land objects <span class="citation" data-cites="yinMappingAgriculturalLand2018">(<a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">Yin et al., 2018</a>)</span>. Instead of using a single image for segmentation, <span class="citation" data-cites="yinMappingAgriculturalLand2018">(<a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">Yin et al., 2018</a>)</span> applied the algo to stack of landsat images (Aug 1989, Sep 1998, May 2007 and Jul 2015) to create temporally homogeneous objects. They used <code>"bottom-up multi-resolution segmentation algorithm"</code> in eCognition. This approach initiates each pixel as a single segment and merges spatially adjacent segments based on their similarity until the desired scale is met.</p>
+<ul>
+<li>Alternative 1: Use existing agricultural land from land cover datasets or osm or similar like <span class="citation" data-cites="wuMonitoringCroplandAbandonment2023">(<a href="#ref-wuMonitoringCroplandAbandonment2023" role="doc-biblioref">Wu et al., 2023</a>)</span>. Consider all the cropland from 2000-2022 as agricultural land objects or filter out values greater than 2/3 to filter out some error/noise.</li>
 </ul></li>
 <li><p>Calculate Annual Provbability (probability of an object being agricultural land): <span class="citation" data-cites="daraMappingTimingCropland2018 yinMappingAgriculturalLand2018">(<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">Dara et al., 2018</a>; <a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">Yin et al., 2018</a>)</span> used “stable” training sites (areas that did not change ). They extracted the spectral signature for those stable sites across multiple years to train the model. Ensure the model is robust enough to handle inter-annual phenological variations and recognize farmland under varying climatic conditions (wet vs dry years). <span class="citation" data-cites="daraMappingTimingCropland2018">(<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">Dara et al., 2018</a>)</span> says <code>"Abandoned areas spectrally align along a gradient between cropped and uncropped areas. This is represented well in class probabilities of cropland vs. non-cropland classes (Yin et al., 2014, 2018). We thus derived cropland probabilities between 1985 and 2015 which then served as input for a trajectory-based approach to detect abandonment and recultivation events over time. This allowed omitting the high inter-annual spectral changes of cropland at the pixel level. Another advantage of using probabilities is their robustness against mixed pixels in the land cover class of interest (Colditz et al., 2011; Yin et al., 2014)."</code></p></li>
 <li><p>Apply landTrendr to Time Series Probabilities: Feed the annual probalities values into the landTrendr algorithm. This step converts a noiy stact of annual classification data into smooth, logical history of land use for eavy agricultural object. When landTrendr is applied to the annual probability values, it performs two operations:</p>

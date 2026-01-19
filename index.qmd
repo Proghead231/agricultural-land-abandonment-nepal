@@ -1,18 +1,6 @@
 ---
 title: "Agricultural Land Abandonment in Nepal"
 jupyter: gee
-editor: 
-  render-on-save: true
-bibliography: references.json
-csl: apa.csl
-filters:
-  - lastmodified.lua
-format:
-  html:
-    css: style.css
-    toc-location: left
-    toc-depth: 3
-    page-layout: full
 ---
 
 **Problem:** Identify abandoned agricultural lands (AAL) in Nepal.
@@ -257,9 +245,7 @@ This method is designed specifically to address the constraints related to topog
 
 The methodology uses an OBIA landTrendr approach applied to annual class probabilities. 
 
-  1. Create agricultural land objects: The study will be carried out at object level to reduce "salt and pepper"  noise common in pixel-based methods. The multi-resolution segmentation or similar algorithm will be applied to stacked Landsat images to create agricultural land objects [@yinMappingAgriculturalLand2018]. Instead of using a single image for segmentation, [@yinMappingAgriculturalLand2018] applied the algo to stack of landsat images (Aug 1989, Sep 1998, May 2007 and Jul 2015) to create temporally homogeneous objects. They used `"bottom-up multi-resolution segmentation algorithm"` in eCognition. This approach initiates each pixel as a single segment and merges spatially adjacent segments based on their similarity until the desired scale is met.
-  
-      - Alternative 1: Use existing agricultural land from land cover datasets or osm or similar like [@wuMonitoringCroplandAbandonment2023]. Consider all the cropland from 2000-2022 as agricultural land objects or filter out values greater than 2/3 to filter out some error/noise.
+
 
    1. Data Acquisition and Preprocessing: GEE and python will be used for all the analysis if possible to keep the workflow easily repeatable and well documented.
    
@@ -283,18 +269,21 @@ The methodology uses an OBIA landTrendr approach applied to annual class probabi
 
           - Source of Training Data: Researchers typically use a combination of historical Landsat imagery and high-resolution Google Earth archives to identify "stable" plots (areas that did not change during a specific window) to provide the baseline spectral signature for the classifier
 
+  2. Create agricultural land objects: The study will be carried out at object level to reduce "salt and pepper"  noise common in pixel-based methods. The multi-resolution segmentation or similar algorithm will be applied to stacked Landsat images to create agricultural land objects [@yinMappingAgriculturalLand2018]. Instead of using a single image for segmentation, [@yinMappingAgriculturalLand2018] applied the algo to stack of landsat images (Aug 1989, Sep 1998, May 2007 and Jul 2015) to create temporally homogeneous objects. They used `"bottom-up multi-resolution segmentation algorithm"` in eCognition. This approach initiates each pixel as a single segment and merges spatially adjacent segments based on their similarity until the desired scale is met.
+  
+      - Alternative 1: Use existing agricultural land from land cover datasets or osm or similar like [@wuMonitoringCroplandAbandonment2023]. Consider all the cropland from 2000-2022 as agricultural land objects or filter out values greater than 2/3 to filter out some error/noise.
 
-   2. Calculate Annual Provbability (probability of an object being agricultural land): [@daraMappingTimingCropland2018; @yinMappingAgriculturalLand2018] used "stable" training sites (areas that did not change ). They extracted the spectral signature for those stable sites across multiple years to train the model. Ensure the model is robust enough to handle inter-annual phenological variations and recognize farmland under varying climatic conditions (wet vs dry years). [@daraMappingTimingCropland2018] says `"Abandoned areas spectrally align along a gradient between cropped and uncropped areas. This is represented well in class probabilities of cropland vs. non-cropland classes (Yin et al., 2014, 2018). We thus derived cropland probabilities between 1985 and 2015 which then served as input for a trajectory-based approach to detect abandonment and recultivation events over time. This allowed omitting the high inter-annual spectral changes of cropland at the pixel level. Another advantage of using probabilities is their robustness against mixed pixels in the land cover class of interest (Colditz et al., 2011; Yin et al., 2014)."`
+  3. Calculate Annual Provbability (probability of an object being agricultural land): [@daraMappingTimingCropland2018; @yinMappingAgriculturalLand2018] used "stable" training sites (areas that did not change ). They extracted the spectral signature for those stable sites across multiple years to train the model. Ensure the model is robust enough to handle inter-annual phenological variations and recognize farmland under varying climatic conditions (wet vs dry years). [@daraMappingTimingCropland2018] says `"Abandoned areas spectrally align along a gradient between cropped and uncropped areas. This is represented well in class probabilities of cropland vs. non-cropland classes (Yin et al., 2014, 2018). We thus derived cropland probabilities between 1985 and 2015 which then served as input for a trajectory-based approach to detect abandonment and recultivation events over time. This allowed omitting the high inter-annual spectral changes of cropland at the pixel level. Another advantage of using probabilities is their robustness against mixed pixels in the land cover class of interest (Colditz et al., 2011; Yin et al., 2014)."`
 
-   3. Apply landTrendr to Time Series Probabilities: Feed the annual probalities values into the landTrendr algorithm. This step converts a noiy stact of annual classification data into smooth, logical history of land use for eavy agricultural object. When landTrendr is applied to the annual probability values, it performs two operations:
+  4. Apply landTrendr to Time Series Probabilities: Feed the annual probalities values into the landTrendr algorithm. This step converts a noiy stact of annual classification data into smooth, logical history of land use for eavy agricultural object. When landTrendr is applied to the annual probability values, it performs two operations:
       - Noise Removal (Despiking): Annual probabilities often fluctuate due to weather events (eg, drought) or image artifats. landTrendr apploes a "despiokin" parameter to ignore the short-term outliers that do not represent ta permanent land-use change. 
       - Curve Fitting (Segmentation): The algorithm attempts to fit a series of straight lines (segments) to the probability history. It simplifies the complex year-to-year data into stable periods (plateaus) and changing periods (transitions)
 
-   4. Identify Structural Breaks and Classify Each Object into "AAL", "Recultivated", or "Fallow": The core goal of this step is to find the vertices (breakpoints) between these segments. A "structural break" indicates the exact year the land management regime changed. This is the specific year where the trajectory shifts from a high probabilty of farming to a declining or low probability. The algorith calculates the magnitude of the change. For abandonment we look for a transition where the pre-change value is high (like >0.5) and the post change value is low (like <0.5). Finding this drop is not enough, we must distinguish abandonment from fallow (temprorary). this is done by applying a duration logic to the landTrendr segments. Following the methodologies of [@yinMappingAgriculturalLand2018] and [@daraMappingTimingCropland2018], we can classify an object as "Abandoned" only if the probability drops and remains low for 5 years.
+  5. Identify Structural Breaks and Classify Each Object into "AAL", "Recultivated", or "Fallow": The core goal of this step is to find the vertices (breakpoints) between these segments. A "structural break" indicates the exact year the land management regime changed. This is the specific year where the trajectory shifts from a high probabilty of farming to a declining or low probability. The algorith calculates the magnitude of the change. For abandonment we look for a transition where the pre-change value is high (like >0.5) and the post change value is low (like <0.5). Finding this drop is not enough, we must distinguish abandonment from fallow (temprorary). this is done by applying a duration logic to the landTrendr segments. Following the methodologies of [@yinMappingAgriculturalLand2018] and [@daraMappingTimingCropland2018], we can classify an object as "Abandoned" only if the probability drops and remains low for 5 years.
         - Fallow: If the probability drops but recovers within 5 years, it is labeled as "Fallow" or "Rotation" rather than abandonment.
         - Recultivation: If the probability drops for >5 years but then rises again near the end of the time series, the it is labelled as "Recultivation"
 
-   5. Validation: Overall Accuracy, Kappa Coefficient, Producer's Accuracy, User's Accuracy
+  6. Validation: Overall Accuracy, Kappa Coefficient, Producer's Accuracy, User's Accuracy
 
 ```{mermaid}
 graph TD
