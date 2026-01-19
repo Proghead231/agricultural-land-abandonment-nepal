@@ -284,7 +284,7 @@ The methodology uses an OBIA landTrendr approach applied to annual class probabi
           - Source of Training Data: Researchers typically use a combination of historical Landsat imagery and high-resolution Google Earth archives to identify "stable" plots (areas that did not change during a specific window) to provide the baseline spectral signature for the classifier
 
 
-   2. Calculate Annual Provbability (probability of an object being agricultural land): Train RF classifier using samples of one reference year. I will apply this model to the whole time series. The output from this will be probability (0-100%) that an object is farmland in each year.
+   2. Calculate Annual Provbability (probability of an object being agricultural land): [@daraMappingTimingCropland2018; @yinMappingAgriculturalLand2018] used "stable" training sites (areas that did not change ). They extracted the spectral signature for those stable sites acoss multiple years to train the model. Ensure the model is robust enough to handle inter-annual phenological variations and recognize farmland under varying climatic conditions (wet vs dry years).
 
    3. Apply landTrendr to Time Series Probabilities: Feed the annual probalities values into the landTrendr algorithm. This algorithm fits a trajectory curve to the probability history. It will identify "structural breaks"—specifically, the point where the probability of being farmland drops and stays low.
 
