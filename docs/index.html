@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Agricultural Land Abandonment in Nepal – Agricultural Land Abandonment</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -52,15 +55,14 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0774fc528949661fb60d8774007a227f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-00feface57a40fb7a06c8694f9a70c45.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -215,7 +217,7 @@ div.csl-indent {
 </section>
 <section id="methods" class="level1">
 <h1>2. Develop a method to identify AAL satisfying the definition</h1>
-<p>Literatures before 2019 were reviewed from papers cited in <span class="citation" data-cites="gogaReviewApplicationRemote2019">(<a href="#ref-gogaReviewApplicationRemote2019" role="doc-biblioref">Goga et al., 2019</a>)</span>. Papers published after 2019 were reviewed from google scholar with custom date filter and <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>. Review was non-exhaustive till 2026-01-19 16:08.</p>
+<p>Literatures before 2019 were reviewed from papers cited in <span class="citation" data-cites="gogaReviewApplicationRemote2019">(<a href="#ref-gogaReviewApplicationRemote2019" role="doc-biblioref">Goga et al., 2019</a>)</span>. Papers published after 2019 were reviewed from google scholar with custom date filter and <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>. Review was non-exhaustive till 2026-03-30 11:06.</p>
 <section id="review-of-existing-methods" class="level2">
 <h2 class="anchored" data-anchor-id="review-of-existing-methods">2.1. Review of existing methods</h2>
 <p>Based on <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>, the methods can be divided into two major categories (Image classification &amp; spectral features method and Time-dynamic &amp;trajectory method) and various sub categories.</p>
@@ -854,6 +856,19 @@ Table&nbsp;2: Table 1: Major Differences Between the Two Methods
 </div>
 </div>
 </div>
+<p><sub></sub>Notes on Sample Data collection: I am adopting <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> to train random forest classifier. I will be using single constant training dataset to estimatge cropland probabilities across entire period.</p>
+<ul>
+<li><p>Target Classes: We must exclusively collect samples from area that never changed land cover status. Stable cropland referes to areas premanently cropped between 2000 and 2035. While cropland may experience short seasonal fallows, the 3-year temporal moving window applied to the landsat metrics will smooth out this short-term noise. Stable non-cropland refers to areas that were never cropped during the study period, such as permanent forests, rangelands, or water bodies.</p></li>
+<li><p>Collecting Training Samples:</p>
+<ul>
+<li>Use the existing land cover dataset to find the potential stable agricultural areas.</li>
+<li>generate random points inside those areas</li>
+<li>visually inspect each of the point to identify true stable agricultural areas.</li>
+<li>Do the same for non-agricultural areas.<sub></sub></li>
+</ul></li>
+</ul>
+<p>Notes on Sample Data collection: I was going to adopt the <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> for sample data collection but it seemed too time consuming for a single person to collect over 4000 samples looking at each each historial image from Google Earth. Therefore, I have decided to use the method by <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span> to collect samples. Like they did, I am going to use the existing land cover dataset to collect samples. Similar to <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="wuMonitoringCroplandAbandonment2023">Wu et al. (<a href="#ref-wuMonitoringCroplandAbandonment2023" role="doc-biblioref">2023</a>)</span> also used existing datasets for identifying agricultural lands.</p>
+<p>Based on <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span>, I will collect the samples using the following process: 1. Create a binary mask of all the agricultural lands from 2000-2022 (note that the land cover dataset for 2012 is not available). 2. Identify the stable agricultural areas by finding the intersection of all the binary masks. 3. Remove the small pixel clusters, field boundaries using the morphological operations. 4. Convert the final stable agricultural land pixels to points 5. Remove all the points except one inside a 1000/2000 meter buffer ensuring all the points are far from each other (spatial autocorrelation). 6. Final check using a phenology profile of the points to ensure they strictly exhibit agricultural characteristics (sharp increase and decrease in NDVI). 7. Repeat the same for the stable non-agricultural lands. Also I will do a stratified sampling using the 2022 land cover dataset so that the model gets trained will all non-cropland classses and does not get confused between different classes. Importantly, I will ensure that the dominant land cover classes like forest and rangeland, bare soil/sand, water and builtup are represented in the training samples. 8. After this I can continue following <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="yinMappingAgriculturalLand2018">Yin et al. (<a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">2018</a>)</span></p>
 
 
 

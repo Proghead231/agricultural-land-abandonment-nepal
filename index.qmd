@@ -344,3 +344,28 @@ graph TD
     style H fill: #fffda0,stroke:#e6b800,stroke-width:2px
     style O fill: #d0f0c0,stroke:#339933,stroke-width:2px
 ```
+
+~~Notes on Sample Data collection:
+I am adopting @daraMappingTimingCropland2018 to train random forest classifier. I will be using single constant training dataset to estimatge cropland probabilities across entire period.
+
+- Target Classes: We must exclusively collect samples from area that never changed land cover status. Stable cropland referes to areas premanently cropped between 2000 and 2035. While cropland may experience short seasonal fallows, the 3-year temporal moving window applied to the landsat metrics will smooth out this short-term noise. Stable non-cropland refers to areas that were never cropped during the study period, such as permanent forests, rangelands, or water bodies.
+
+- Collecting Training Samples:
+  - Use the existing land cover dataset to find the potential stable agricultural areas.
+  - generate random points inside those areas
+  - visually inspect each of the point to identify true stable agricultural areas.
+  - Do the same for non-agricultural areas.~~
+
+
+Notes on Sample Data collection:
+I was going to adopt the @daraMappingTimingCropland2018 for sample data collection but it seemed too time consuming for a single person to collect over 4000 samples looking at each each historial image from Google Earth. Therefore, I have decided to use the method by @alcantaraMappingExtentAbandoned2013 to collect samples. Like they did, I am going to use the existing land cover dataset to collect samples. Similar to @alcantaraMappingExtentAbandoned2013, @wuMonitoringCroplandAbandonment2023 also used existing datasets for identifying agricultural lands. 
+
+Based on @alcantaraMappingExtentAbandoned2013, I will collect the samples using the following process:
+  1. Create a binary mask of all the agricultural lands from 2000-2022 (note that the land cover dataset for 2012 is not available).
+  2. Identify the stable agricultural areas by finding the intersection of all the binary masks.
+  3. Remove the small pixel clusters, field boundaries using the morphological operations.
+  4. Convert the final stable agricultural land pixels to points
+  5. Remove all the points except one inside a 1000/2000 meter buffer ensuring all the points are far from each other (spatial autocorrelation).
+  6. Final check using a phenology profile of the points to ensure they strictly exhibit agricultural characteristics (sharp increase and decrease in NDVI).
+  7. Repeat the same for the stable non-agricultural lands. Also I will do a stratified sampling using the 2022 land cover dataset so that the model gets trained will all non-cropland classses and does not get confused between different classes. Importantly, I will ensure that the dominant land cover classes like forest and rangeland, bare soil/sand, water and builtup are represented in the training samples.
+  8. After this I can continue following @daraMappingTimingCropland2018 and @yinMappingAgriculturalLand2018

@@ -10,5 +10,8 @@
   },
   "analysis.qmd": {
     "analysis.html": "d4aff83b"
+  },
+  "code/analysis.ipynb": {
+    "analysis.html": "bb05db67"
   }
 }
