@@ -1,0 +1,25 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Analysis & Results\"\n",
+        "jupyter: gee\n",
+        "---"
+      ],
+      "id": "1452aa92"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "gee",
+      "language": "python",
+      "display_name": "Python (gee)",
+      "path": "/home/proghead/.local/share/jupyter/kernels/gee"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

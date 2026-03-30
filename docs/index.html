@@ -156,7 +156,10 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#multitemporal-object-oriented-image-analysis-based-on-phenology-using-landtrendr-algorithm" id="toc-multitemporal-object-oriented-image-analysis-based-on-phenology-using-landtrendr-algorithm" class="nav-link" data-scroll-target="#multitemporal-object-oriented-image-analysis-based-on-phenology-using-landtrendr-algorithm">Multitemporal Object-oriented Image Analysis Based on Phenology using landTrendr algorithm</a></li>
   <li><a href="#rationale-for-the-using-the-methodology" id="toc-rationale-for-the-using-the-methodology" class="nav-link" data-scroll-target="#rationale-for-the-using-the-methodology">3.1. Rationale for the using the Methodology</a></li>
-  <li><a href="#suggested-methodology-in-detail-based-on-yinmappingagriculturalland2018-wumonitoringcroplandabandonment2023-daramappingtimingcropland2018" id="toc-suggested-methodology-in-detail-based-on-yinmappingagriculturalland2018-wumonitoringcroplandabandonment2023-daramappingtimingcropland2018" class="nav-link" data-scroll-target="#suggested-methodology-in-detail-based-on-yinmappingagriculturalland2018-wumonitoringcroplandabandonment2023-daramappingtimingcropland2018">3.2. Suggested Methodology in Detail (based on <span class="citation" data-cites="yinMappingAgriculturalLand2018 wuMonitoringCroplandAbandonment2023 daraMappingTimingCropland2018">(Dara et al., 2018; Wu et al., 2023; Yin et al., 2018)</span>)</a></li>
+  <li><a href="#suggested-methodology-in-detail-based-on-yinmappingagriculturalland2018-wumonitoringcroplandabandonment2023-daramappingtimingcropland2018" id="toc-suggested-methodology-in-detail-based-on-yinmappingagriculturalland2018-wumonitoringcroplandabandonment2023-daramappingtimingcropland2018" class="nav-link" data-scroll-target="#suggested-methodology-in-detail-based-on-yinmappingagriculturalland2018-wumonitoringcroplandabandonment2023-daramappingtimingcropland2018">3.2. Suggested Methodology in Detail (based on <span class="citation" data-cites="yinMappingAgriculturalLand2018 wuMonitoringCroplandAbandonment2023 daraMappingTimingCropland2018">(Dara et al., 2018; Wu et al., 2023; Yin et al., 2018)</span>)</a>
+  <ul class="collapse">
+  <li><a href="#notes-on-sample-data-collection" id="toc-notes-on-sample-data-collection" class="nav-link" data-scroll-target="#notes-on-sample-data-collection">Notes on Sample Data collection:</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -217,7 +220,7 @@ div.csl-indent {
 </section>
 <section id="methods" class="level1">
 <h1>2. Develop a method to identify AAL satisfying the definition</h1>
-<p>Literatures before 2019 were reviewed from papers cited in <span class="citation" data-cites="gogaReviewApplicationRemote2019">(<a href="#ref-gogaReviewApplicationRemote2019" role="doc-biblioref">Goga et al., 2019</a>)</span>. Papers published after 2019 were reviewed from google scholar with custom date filter and <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>. Review was non-exhaustive till 2026-03-30 11:06.</p>
+<p>Literatures before 2019 were reviewed from papers cited in <span class="citation" data-cites="gogaReviewApplicationRemote2019">(<a href="#ref-gogaReviewApplicationRemote2019" role="doc-biblioref">Goga et al., 2019</a>)</span>. Papers published after 2019 were reviewed from google scholar with custom date filter and <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>. Review was non-exhaustive till 2026-03-30 11:38.</p>
 <section id="review-of-existing-methods" class="level2">
 <h2 class="anchored" data-anchor-id="review-of-existing-methods">2.1. Review of existing methods</h2>
 <p>Based on <span class="citation" data-cites="liuGlobalReviewMonitoring2025a">(<a href="#ref-liuGlobalReviewMonitoring2025a" role="doc-biblioref">Liu et al., 2025</a>)</span>, the methods can be divided into two major categories (Image classification &amp; spectral features method and Time-dynamic &amp;trajectory method) and various sub categories.</p>
@@ -856,7 +859,19 @@ Table&nbsp;2: Table 1: Major Differences Between the Two Methods
 </div>
 </div>
 </div>
-<p><sub></sub>Notes on Sample Data collection: I am adopting <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> to train random forest classifier. I will be using single constant training dataset to estimatge cropland probabilities across entire period.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Earlier plan for sample collection that I abandoned due to resource contraints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Notes on Sample Data collection: I am adopting <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> to train random forest classifier. I will be using single constant training dataset to estimatge cropland probabilities across entire period.</p>
 <ul>
 <li><p>Target Classes: We must exclusively collect samples from area that never changed land cover status. Stable cropland referes to areas premanently cropped between 2000 and 2035. While cropland may experience short seasonal fallows, the 3-year temporal moving window applied to the landsat metrics will smooth out this short-term noise. Stable non-cropland refers to areas that were never cropped during the study period, such as permanent forests, rangelands, or water bodies.</p></li>
 <li><p>Collecting Training Samples:</p>
@@ -864,14 +879,30 @@ Table&nbsp;2: Table 1: Major Differences Between the Two Methods
 <li>Use the existing land cover dataset to find the potential stable agricultural areas.</li>
 <li>generate random points inside those areas</li>
 <li>visually inspect each of the point to identify true stable agricultural areas.</li>
-<li>Do the same for non-agricultural areas.<sub></sub></li>
+<li>Do the same for non-agricultural areas.</li>
 </ul></li>
 </ul>
-<p>Notes on Sample Data collection: I was going to adopt the <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> for sample data collection but it seemed too time consuming for a single person to collect over 4000 samples looking at each each historial image from Google Earth. Therefore, I have decided to use the method by <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span> to collect samples. Like they did, I am going to use the existing land cover dataset to collect samples. Similar to <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="wuMonitoringCroplandAbandonment2023">Wu et al. (<a href="#ref-wuMonitoringCroplandAbandonment2023" role="doc-biblioref">2023</a>)</span> also used existing datasets for identifying agricultural lands.</p>
-<p>Based on <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span>, I will collect the samples using the following process: 1. Create a binary mask of all the agricultural lands from 2000-2022 (note that the land cover dataset for 2012 is not available). 2. Identify the stable agricultural areas by finding the intersection of all the binary masks. 3. Remove the small pixel clusters, field boundaries using the morphological operations. 4. Convert the final stable agricultural land pixels to points 5. Remove all the points except one inside a 1000/2000 meter buffer ensuring all the points are far from each other (spatial autocorrelation). 6. Final check using a phenology profile of the points to ensure they strictly exhibit agricultural characteristics (sharp increase and decrease in NDVI). 7. Repeat the same for the stable non-agricultural lands. Also I will do a stratified sampling using the 2022 land cover dataset so that the model gets trained will all non-cropland classses and does not get confused between different classes. Importantly, I will ensure that the dominant land cover classes like forest and rangeland, bare soil/sand, water and builtup are represented in the training samples. 8. After this I can continue following <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="yinMappingAgriculturalLand2018">Yin et al. (<a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">2018</a>)</span></p>
+</div>
+</div>
+</div>
+<section id="notes-on-sample-data-collection" class="level3">
+<h3 class="anchored" data-anchor-id="notes-on-sample-data-collection">Notes on Sample Data collection:</h3>
+<p>I was going to adopt the <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> for sample data collection but it seemed too time consuming for a single person to collect over 4000 samples looking at each each historial image from Google Earth. Therefore, I have decided to use the method by <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span> to collect samples. Like they did, I am going to use the existing land cover dataset to collect samples. Similar to <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span>, <span class="citation" data-cites="wuMonitoringCroplandAbandonment2023">Wu et al. (<a href="#ref-wuMonitoringCroplandAbandonment2023" role="doc-biblioref">2023</a>)</span> also used existing datasets for identifying agricultural lands.</p>
+<p>Based on <span class="citation" data-cites="alcantaraMappingExtentAbandoned2013">Alcantara et al. (<a href="#ref-alcantaraMappingExtentAbandoned2013" role="doc-biblioref">2013</a>)</span>, I will collect the samples using the following process:</p>
+<ol type="1">
+<li>Create a binary mask of all the agricultural lands from 2000-2022 (note that the land cover dataset for 2012 is not available).</li>
+<li>Identify the stable agricultural areas by finding the intersection of all the binary masks.</li>
+<li>Remove the small pixel clusters, field boundaries using the morphological operations.</li>
+<li>Convert the final stable agricultural land pixels to points</li>
+<li>Remove all the points except one inside a 1000/2000 meter buffer ensuring all the points are far from each other (spatial autocorrelation).</li>
+<li>Final check using a phenology profile of the points to ensure they strictly exhibit agricultural characteristics (sharp increase and decrease in NDVI).</li>
+<li>Repeat the same for the stable non-agricultural lands. Also I will do a stratified sampling using the 2022 land cover dataset so that the model gets trained will all non-cropland classses and does not get confused between different classes. Importantly, I will ensure that the dominant land cover classes like forest and rangeland, bare soil/sand, water and builtup are represented in the training samples.</li>
+<li>After this I can continue following <span class="citation" data-cites="daraMappingTimingCropland2018">Dara et al. (<a href="#ref-daraMappingTimingCropland2018" role="doc-biblioref">2018</a>)</span> and <span class="citation" data-cites="yinMappingAgriculturalLand2018">Yin et al. (<a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">2018</a>)</span></li>
+</ol>
 
 
 
+</section>
 </section>
 </section>
 
