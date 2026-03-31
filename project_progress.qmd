@@ -1,0 +1,68 @@
+---
+title: "📊 Project Progress Report"
+jupyter: gee
+---
+
+## Progress Summary
+| Step        | Status | Notes              |
+| ----------- | ------ | ------------------ |
+| 1. Literature Review | ✅<br> Start: 2025-12-25<br> End: 2026-01-16     | Sufficient literatures were reviewed to establish a robust methodology based on papers mentioned in @gogaReviewApplicationRemote2019 and @liuGlobalReviewMonitoring2025a          |
+| 2. Training Sample Generation for Agriculture Land Probability Classification | ⚙️<br> Start: 2026-03-30<br>End: 2026-04-08     | Performing multi-temporal phenological filtering on training samples to ensure they consistently exhibit active agricultural signatures (e.g., high NDVI amplitude indicating plow/harvest cycles).                   |
+| 3. Annual Agricultural Land Probability Generation (2000-2022) |  ⬜     |  |
+| 4. Object-Based Image Analysis (OBIA) to Delineate Agricultural Land Objects and Compute Object-Level Probabilities | ⬜       |                    |
+| 5. Trend Analysis of Object-Level Probabilities using LandTrendr to Identify Abandonment and Recultivation | ⬜       |                    |
+
+
+## Detailed Progress Report
+### 1. Initial Literature Review
+**Staus:** ✅ Completed  
+**Notes:** Using @yinMappingAgriculturalLand2018 (For OBIA), @daraMappingTimingCropland2018 (For Classification), @alcantaraMappingExtentAbandoned2013 (For sample generation strategy) 
+
+### 2. Training Sample Generation for Agriculture Land Probability Classification
+1. Create a binary mask of all the agricultural lands from 2000-2022 (note that the land cover dataset for 2012 is not available).  
+    **Status:** ✅ Completed  
+    **Notes:** Used FRTC land cover dataset for identifying stable agriculture lands.
+
+2. Identify the stable agricultural areas by finding the intersection of all the binary masks.
+    **Status:** ✅ Completed  
+    **Notes:** Intersected the annual agricultural masks to isolate pixels consistently classified as agriculture across all available years (2000-2022).
+
+3. Remove the small pixel clusters, field boundaries using the morphological operations.  
+    **Status:** ✅ Completed  
+    **Notes:** Applied a 2-pixel erosion to eliminate boundary/edge effects, and filtered out isolated pixel clusters smaller than 10 pixels (~0.9 ha) to guarantee sample purity.
+
+4. Convert the final stable agricultural land pixels to points  
+    **Status:** ✅ Completed  
+    **Notes:** Extracted an initial pool of 100,000 random sample points from within the pure, stable agricultural mask.
+
+5. Spatial thinning of the points  
+    **Status:** ✅ Completed  
+    **Notes:** Applied a spatial filter enforcing a 2,000-meter minimum distance between points to mitigate spatial autocorrelation and ensure broad geographic representation.
+
+6. Final check using a phenology profile of the points to ensure they strictly exhibit agricultural characteristics (sharp increase and decrease in NDVI).  
+    **Status:** ⚙️ In Progress | Estimated Completion: 02-04-2026 (2-3 Days)  
+    **Notes:** Performing multi-temporal phenological filtering on training samples to ensure they consistently exhibit active agricultural signatures (e.g., high NDVI amplitude indicating plow/harvest cycles)
+
+7. Repeat the same for the stable non-agricultural lands.  
+    **Status:** ⬜ Not Started    
+    **Notes:** Will perform stratified sampling using the 2022 land cover dataset to ensure the model learns the spectral signatures of all non-cropland classes. Dominant land covers (forest, rangeland, bare soil/sand, water, and built-up areas) will be proportionally represented to minimize confusion errors.
+
+
+### 3. Annual Agricultural Land Probability Generation (2000-2022)
+1.  Using the sample from 2, train the RF model and generate agricultural land probability raster from 2000-2022.  
+    **Status:** ⬜ Not Started      
+    **Notes**: Different metrics like NDVI, Texture, Phenological metrics will be used in the classifical
+
+### 4. Object-Based Image Analysis (OBIA) to Delineate Agricultural Land Objects and Compute Object-Level Probabilities
+1. Create a agricultural land mask from the probability rasters generated in 3.  
+    **Status:** ⬜ Not Started    
+    
+2. Segment agricultural lands within the generated mask using multi-temporal Landsat imagery.  
+    **Status:** ⬜ Not Started    
+    
+3. Compute the median agricultural probability for each delineated segment.  
+    **Status:** ⬜ Not Started    
+
+### 5. Trend Analysis of Object-Level Probabilities using LandTrendr to Identify Abandonment and Recultivation
+1. Execute temporal segmentation on the object-level probability time-series using the LandTrendr algorithm to mathematically pinpoint the timing and duration of abandonment or recultivation events.    
+    **Status:** ⬜ Not Started 

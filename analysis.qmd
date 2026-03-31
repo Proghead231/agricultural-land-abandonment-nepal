@@ -1,4 +1,8 @@
 ---
-title: "Analysis & Results"
+title: "Results"
 jupyter: gee
 ---
+
+![Fig 1: Stable Agricultural Lands FRTC (2000-2022)](images/results/Stable_Agriculture.png){.lightbox}
+
+![Fig 2: Stable Agricultural Lands Samples After Spatial Thining](images/results/samples_after_thining.png){.lightbox}
