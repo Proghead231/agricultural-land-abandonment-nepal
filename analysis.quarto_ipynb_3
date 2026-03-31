@@ -1,0 +1,29 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Results\"\n",
+        "jupyter: gee\n",
+        "---\n",
+        "\n",
+        "![Fig 1: Stable Agricultural Lands FRTC (2000-2022)](images/results/Stable_Agriculture.png){.lightbox}\n",
+        "\n",
+        "![Fig 2: Stable Agricultural Lands Samples After Spatial Thining](images/results/samples_after_thining.png){.lightbox}"
+      ],
+      "id": "ae745c02"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "gee",
+      "language": "python",
+      "display_name": "Python (gee)",
+      "path": "/home/proghead/.local/share/jupyter/kernels/gee"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
