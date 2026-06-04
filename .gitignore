@@ -1,2 +1,10 @@
 /.quarto/
 **/*.quarto_ipynb
+code/outputs/obia_results/parameter_tuning_inputs/
+code/outputs/old_phenology_files
+code/outputs/phenology_verified_samples/ndvi_data_for_verification
+__pycache__/
+*.pyc
+*.pyo
+
+aal_arcgisWS/

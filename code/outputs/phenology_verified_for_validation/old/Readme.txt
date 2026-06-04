@@ -1,0 +1,1 @@
+From this the 0.55 and 0.25 values were derived for the stable crop filtering

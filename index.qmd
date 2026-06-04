@@ -373,3 +373,70 @@ Based on @alcantaraMappingExtentAbandoned2013, I will collect the samples using 
 6. Final check using a phenology profile of the points to ensure they strictly exhibit agricultural characteristics (sharp increase and decrease in NDVI).
 7. Repeat the same for the stable non-agricultural lands. Also I will do a stratified sampling using the 2022 land cover dataset so that the model gets trained will all non-cropland classses and does not get confused between different classes. Importantly, I will ensure that the dominant land cover classes like forest and rangeland, bare soil/sand, water and builtup are represented in the training samples.
 8. After this I can continue following @daraMappingTimingCropland2018 and @yinMappingAgriculturalLand2018
+
+
+### Notes on phenological check
+I will be using the phenological signature of the potential stable cropland NDVI values from 2000-2022 to identify the stable active cropland samples.
+
+#### Profile of Active Cropland
+- Irregular Curves with Narrow Peaks: Active farming disrupts the natural vegetation cycle. Look for irregular temporal NDVI profiles that feature one or more distinct, narrow peaks.
+- Sharp Drops (Minima): You will see sharp, sudden drops in the NDVI value. These represent harvesting events or land preparation (plowing) where bare soil is exposed before the start of the next season
+- Multiple Cycles (Common in Nepal): Depending on the elevation and irrigation in your Nepalese study area, farmers may plant up to three crops a year (e.g., a summer rice/maize crop and a winter wheat/potato crop). If this is the case, you will see two or three distinct peaks and troughs within a single year.
+- Smaller Area Under the Curve: Active cropland typically results in a substantially smaller growing season NDVI integral (the total area under the curve) compared to natural vegetation, because the land is artificially kept bare for parts of the year
+
+#### The Profile of Stable Non-Cropland or Fallow Land (What to Discard/Relabel): 
+- Smooth, Bell-Shaped Curves: Unmanaged farmlands, natural grasslands, and forests follow the natural climatic seasons (e.g., greening up during the monsoon and slowly browning in the dry season). This creates a very smooth, bell-shaped temporal NDVI profile without sudden interruptions.
+- Plateau Shapes: If the land is permanently and intensively grazed pasture, it will differ from the bell shape by exhibiting a high, flat "plateau-shaped" form across the growing season.
+
+### Notes on Peak Detection
+Based on the specific phenological characteristics of crops in the mountainous regions of Nepal established by Mishra et al. (2023), the peak detection algo in scipy needs to be following.
+
+Because I am using an 8-day Landsat composite (resampled to 16 Days) and find_peaks algo operates on (samples), not days. Therefore, 1 sample = 16 days.
+**Parameters for 8 days composite and 16 days resampled**
+1. height: 0.4/0.35
+Literature value: Mishra et al. determined that for a peak to be considered an active crop in Nepal, the maximum NDVI must be above 0.4. Start with height=0.4, but because the 16-day mean might depress the absolute peak value, I may need to lower this slightly (e.g., to 0.35) if the function starts missing obvious crop cycles.
+
+2. distance: 15/7/8
+Literature value: The authors established that the duration between a local minimum (planting/plowing) and a local maximum (peak growth) for a valid crop cycle in Nepal ranges from 60 to 120 days. This means a full cycle (from one peak to the next peak in a multi-cropping system) takes at least 120 days.
+How to set it: 120 days ÷ 8 days/sample = 15 samples. Set distance=15. This prevents the function from overcrowding your data by falsely identifying two peaks within the same 120-day growing season.
+Since 1 sample now equals 16 days after resampling, must adjust the mathematical thresholds defining a crop cycle (120 to 240 days):
+distance: The minimum time between two crop peaks is roughly 120 days.
+Calculation: 120 days ÷ 16 days/sample = 7.5.
+New Value: Set distance=7 or distance=8.
+
+3. width: (15, 30)/(7, 15)
+Literature value: As stated above, a single crop cycle (from minimum to minimum, or base to base) takes roughly 120 to 240 days (which is 60 to 120 days from min to max, multiplied by two).
+How to set it: 120 days is 15 samples, and 240 days is 30 samples. Setting width=(15, 30) ensures the algorithm only flags peaks that have the specific "narrow" temporal width of an agricultural crop, filtering out the wide, bell-shaped curves of natural forests. For 16 day resampled: 120 ÷ 16 = 7.5. 240 ÷ 16 = 15.
+
+New Value: Set width=(7, 15) or width=(8, 15).
+**A Crucial Clarification on the "60-Day" Literature Rule** 
+According to the phenological rules established by Mishra et al., the 60 to 120-day timeframe refers strictly to the duration between the local minima (planting/land preparation) and the local maxima (peak vegetative growth). It does not represent the full duration of the crop in the field. Because it takes 60 to 120 days just to reach peak growth, a full crop cycle (from the bare-soil minimum of planting to the bare-soil minimum of the harvest) actually takes 120 to 240 days.
+
+Therefore, for standard crops (Rice, Maize, Wheat): For targeting the standard staple crops that follow Mishra et al.'s 120-to-240-day full cycle rule, width=(7, 15). A minimum width of 7 samples equals 112 days (7 × 16), which perfectly catches the 120-day full cycles without missing them.
+
+For fast-growing crops: 60-day short-season catch crops (like quick-growing vegetables), width=(3, 15) so the algorithm accepts peaks that are only ~3.75 samples wide. However, be aware that lowering the width this much on a 16-day smoothed composite significantly increases the risk of the algorithm falsely counting a 1-month flush of weeds as an active crop cycle.
+
+3. prominence: 0.15/0.12 (Estimated from thresholds)
+While the authors do not give a single "prominence" metric, they mandate a "consistent NDVI increment after the detected minima" and note that the average annual NDVI for these active fields is typically below 0.25. If the baseline (minima) hovers around 0.25 and the peak (maxima) must be at least 0.40, the crop "stands out" from its baseline by at least 0.15. Therefore, prominence=0.15. This is highly effective for your cloud-interpolated NDVI data, as it forces the algorithm to only count peaks that rise significantly from the bare-soil baseline, ignoring minor fluctuations. Because the 16-day average will smooth out the sharp, sudden drops of bare soil during harvest, the trough-to-peak difference will shrink. Start with prominence=0.15, but be prepared to lower it to 0.10 or 0.12 to ensure the algorithm still detects peaks that don't rise as sharply from the smoothed baseline.
+
+#### Operating on your 'smoothed_ndvi' 16-day array
+peaks, properties = find_peaks(
+    smoothed_ndvi, 
+    height=0.4,         # May need to be lowered from 0.4 due to 16-day averaging
+    distance=7,          # 7 samples * 16 days = 112 days (approx. 120 day minimum)
+    width=(7, 15),       # Crop cycle lasts between 112 and 240 days
+    prominence=0.15      # Lowered slightly to account for the flattened troughs
+)
+
+### Notes on training sample generation
+After getting the consensus stable cropland, erosion and expansion and spatial filtering:
+ 1. Phenology filtering was done with a combination of peak detection and phenology identification algo.
+ 2. After that, 10% of the phenology verified points were taken for validation through google earth historical imagery.  
+ 3. Then i checked the accuray of the phenology filtering and found it to be around 75-80% in the beginning. 
+ 4. To improve the accuracy, I checked how the NDVI values in the validation samples of rangeland and stable ag differred in terms of mean, max, min median. After a couple of hit and trail. I found:
+ Stable cropland: Mean Min NDVI	0.159 and Mean Amplitude	0.650
+
+ Non-stable rangeland: Mean Min NDVI 0.198 Mean Amplitude 0.568
+ Therefore if overall_amplitude < 0.55 or overall_min > 0.25 discard as rangeland. This worked and my accuracy reached 83%.
+
+ 5. I did not have to do the same for the stable non-crop because I got 98% accuracy on the first try. I anly used the land cover information to identify the relationship for different classes. Still I had to hit and trial for the right threshold.

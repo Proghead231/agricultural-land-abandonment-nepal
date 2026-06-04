@@ -7,7 +7,7 @@ jupyter: gee
 | Step        | Status | Notes              |
 | ----------- | ------ | ------------------ |
 | 1. Literature Review | ✅<br> Start: 2025-12-25<br> End: 2026-01-16     | Sufficient literatures were reviewed to establish a robust methodology based on papers mentioned in @gogaReviewApplicationRemote2019 and @liuGlobalReviewMonitoring2025a [Click to visit the central repository for this project](https://github.com/Proghead231/agricultural-land-abandonment-nepal)         |
-| 2. Training Sample Generation for Agriculture Land Probability Classification | ⚙️<br> Start: 2026-03-30<br>End: 2026-04-08     | Performing multi-temporal phenological filtering on training samples to ensure they consistently exhibit active agricultural signatures (e.g., high NDVI amplitude indicating plow/harvest cycles).                   |
+| 2. Training Sample Generation for Agriculture Land Probability Classification | ✅<br> Start: 2026-03-30<br>End: 2026-05-27     | Performing multi-temporal phenological filtering on training samples to ensure they consistently exhibit active agricultural signatures (e.g., high NDVI amplitude indicating plow/harvest cycles).                   |
 | 3. Annual Agricultural Land Probability Generation (2000-2022) |  ⬜     |  |
 | 4. Object-Based Image Analysis (OBIA) to Delineate Agricultural Land Objects and Compute Object-Level Probabilities | ⚙️<br> Start: 2026-01-16<br>End:      |                    |
 | 5. Trend Analysis of Object-Level Probabilities using LandTrendr to Identify Abandonment and Recultivation | ⬜       |                    |
@@ -42,11 +42,11 @@ jupyter: gee
     **Notes:** Applied a spatial filter enforcing a 2,000-meter minimum distance between points to mitigate spatial autocorrelation and ensure broad geographic representation.
 
 6. Final check using a phenology profile of the points to ensure they strictly exhibit agricultural characteristics (sharp increase and decrease in NDVI).  
-    **Status:** ⚙️ Estimated Completion: 02-04-2026 (2-3 Days)  
+    **Status:** ✅ 
     **Notes:** Performing multi-temporal phenological filtering on training samples to ensure they consistently exhibit active agricultural signatures (e.g., high NDVI amplitude indicating plow/harvest cycles)
 
 7. Repeat the same for the stable non-agricultural lands.  
-    **Status:** ⬜   
+    **Status:** ✅   
     **Notes:** Will perform stratified sampling using the 2022 land cover dataset to ensure the model learns the spectral signatures of all non-cropland classes. Dominant land covers (forest, rangeland, bare soil/sand, water, and built-up areas) will be proportionally represented to minimize confusion errors.
 
 
