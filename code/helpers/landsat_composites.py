@@ -49,7 +49,9 @@ class C2SRExpressions:
       ),
       'NBR': 'clamp((b("nir") - b("swir2")) / (b("nir") + b("swir2")), -1, 1)',
       'NDWI': 'clamp((b("green") - b("nir")) / (b("green") + b("nir")), -1, 1)',
+      'NDMI': 'clamp((b("nir") - b("swir1")) / (b("nir") + b("swir1")), -1, 1)',
       'BAI': '1.0 / (pow(0.1 - b("red"), 2) + pow(0.06 - b("nir"), 2))',
+      'MSAVI': '(2 * b("nir") + 1 - sqrt(pow(2 * b("nir") + 1, 2) - 8 * (b("nir") - b("red")))) / 2.0',
   }
 
   def _expression(self) -> ee.ImageCollection:

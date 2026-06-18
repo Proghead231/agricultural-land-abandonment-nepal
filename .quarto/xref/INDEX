@@ -1,29 +1,23 @@
 {
-  "report/report.qmd": {
-    "report.html": "a45a77be"
-  },
-  "report/index.qmd": {
-    "index.html": "ef769250"
+  "analysis.qmd": {
+    "analysis.html": "296744fc"
   },
   "index.qmd": {
-    "index.html": "49c5e2fe"
+    "index.html": "35f6c7e1"
   },
-  "analysis.qmd": {
-    "analysis.html": "d4aff83b"
+  "project_progress2.qmd": {
+    "project_progress2.html": "283c9d8a"
   },
-  "code/analysis.ipynb": {
-    "analysis.html": "bb05db67"
+  "code/5_1-ag_obj_segmentation.ipynb": {
+    "5_1-ag_obj_segmentation.html": "033814f6"
   },
-  "project_progress.qmd": {
-    "project_progress.html": "b2c23c26"
+  "code/5_4-ag_obj_segmentation_assessment2.ipynb": {
+    "5_4-ag_obj_segmentation_assessment2.html": "e3c7853b"
   },
-  "code/1-ag_obj_segmentation.ipynb": {
-    "1-ag_obj_segmentation.html": "b1287713"
+  "code/6_landtrendr_test.ipynb": {
+    "6_landtrendr_test.html": "96191779"
   },
-  "code/2-sample_generation_for_classification.ipynb": {
-    "2-sample_generation_for_classification.html": "85e4dc1c"
-  },
-  "code/3-annual_prob.ipynb": {
-    "3-annual_prob.html": "f7f19676"
+  "code/misc_abandonment_preliminary.ipynb": {
+    "misc_abandonment_preliminary.html": "1aa10bf2"
   }
 }

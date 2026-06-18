@@ -119,7 +119,7 @@ div.csl-indent {
 <span class="menu-text">Results</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project_progress2.html"> 
+    <a class="nav-link active" href="./project_progress2.html" aria-current="page"> 
 <span class="menu-text">Project Progress Report</span></a>
   </li>  
 </ul>
@@ -142,7 +142,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#initial-literature-review" id="toc-initial-literature-review" class="nav-link" data-scroll-target="#initial-literature-review">1. Initial Literature Review ✅</a></li>
   <li><a href="#training-sample-generation-for-agriculture-land-probability-classification" id="toc-training-sample-generation-for-agriculture-land-probability-classification" class="nav-link" data-scroll-target="#training-sample-generation-for-agriculture-land-probability-classification">2. Training Sample Generation for Agriculture Land Probability Classification ⚙️</a></li>
-  <li><a href="#annual-agricultural-land-probability-generation-2000-2022" id="toc-annual-agricultural-land-probability-generation-2000-2022" class="nav-link" data-scroll-target="#annual-agricultural-land-probability-generation-2000-2022">3. Annual Agricultural Land Probability Generation (2000-2022) ⬜</a></li>
+  <li><a href="#annual-agricultural-land-probability-generation-2000-2022" id="toc-annual-agricultural-land-probability-generation-2000-2022" class="nav-link" data-scroll-target="#annual-agricultural-land-probability-generation-2000-2022">3. Annual Agricultural Land Probability Generation (2000-2022) ✅</a></li>
   <li><a href="#object-based-image-analysis-obia-to-delineate-agricultural-land-objects-and-compute-object-level-probabilities" id="toc-object-based-image-analysis-obia-to-delineate-agricultural-land-objects-and-compute-object-level-probabilities" class="nav-link" data-scroll-target="#object-based-image-analysis-obia-to-delineate-agricultural-land-objects-and-compute-object-level-probabilities">4. Object-Based Image Analysis (OBIA) to Delineate Agricultural Land Objects and Compute Object-Level Probabilities ⚙️</a></li>
   <li><a href="#trend-analysis-of-object-level-probabilities-using-landtrendr-to-identify-abandonment-and-recultivation" id="toc-trend-analysis-of-object-level-probabilities-using-landtrendr-to-identify-abandonment-and-recultivation" class="nav-link" data-scroll-target="#trend-analysis-of-object-level-probabilities-using-landtrendr-to-identify-abandonment-and-recultivation">5. Trend Analysis of Object-Level Probabilities using LandTrendr to Identify Abandonment and Recultivation ⬜</a></li>
   </ul></li>
@@ -201,13 +201,13 @@ div.csl-indent {
 </tr>
 <tr class="odd">
 <td>3. Annual Agricultural Land Probability Generation (2000-2022)</td>
-<td>⬜</td>
-<td></td>
+<td>✅<br> Start: 2026-05-27<br>End: 2026-06-10</td>
+<td>Extracting training data for each year (2000-2022) and performing Random Forest hyperparameter tuning to make the final predictions.</td>
 </tr>
 <tr class="even">
 <td>4. Object-Based Image Analysis (OBIA) to Delineate Agricultural Land Objects and Compute Object-Level Probabilities</td>
 <td>⚙️<br> Start: 2026-01-16<br>End:</td>
-<td></td>
+<td>Running parameter tuning using Area-Weighted Variance (ALV) and Moran’s I to determine the optimal SNIC segmentation scale.</td>
 </tr>
 <tr class="odd">
 <td>5. Trend Analysis of Object-Level Probabilities using LandTrendr to Identify Abandonment and Recultivation</td>
@@ -248,11 +248,11 @@ div.csl-indent {
 </ol>
 </section>
 <section id="annual-agricultural-land-probability-generation-2000-2022" class="level3">
-<h3 class="anchored" data-anchor-id="annual-agricultural-land-probability-generation-2000-2022">3. Annual Agricultural Land Probability Generation (2000-2022) ⬜</h3>
+<h3 class="anchored" data-anchor-id="annual-agricultural-land-probability-generation-2000-2022">3. Annual Agricultural Land Probability Generation (2000-2022) ✅</h3>
 <ol type="1">
 <li>Using the sample from 2, train the RF model and generate agricultural land probability raster from 2000-2022.<br>
-<strong>Status:</strong> ⬜<br>
-<strong>Notes</strong>: Different metrics (to be decided) like NDVI, Texture, Phenological metrics will be used in the classifical</li>
+<strong>Status:</strong> ✅<br>
+<strong>Notes</strong>: Extracting Landsat images from 2000-2022, gathering training data, and running Random Forest hyperparameter tuning before generating the final probability rasters.</li>
 </ol>
 </section>
 <section id="object-based-image-analysis-obia-to-delineate-agricultural-land-objects-and-compute-object-level-probabilities" class="level3">
@@ -263,7 +263,7 @@ div.csl-indent {
 <strong>Notes:</strong> Authors have restricted their analysis inside agricultural lands only, therefore this mask is required for segmentation</p></li>
 <li><p>Segment agricultural lands within the generated mask using multi-temporal Landsat imagery.<br>
 <strong>Status:</strong> ⚙️<br>
-<strong>Notes:</strong> Image Segmentation will be performed on multi-temporal landsat images + terrain images using Simple Non-Iterative Clustering (SNIC) algo in GEE. This is to segment agricultural lands into homogenous objects for further analysis, also reduce salt &amp; pepper effect in the final output.</p></li>
+<strong>Notes:</strong> Image Segmentation is being performed on multi-temporal landsat images + terrain images using Simple Non-Iterative Clustering (SNIC) algo in GEE. Parameter tuning using Area-Weighted Variance (ALV) and Moran’s I (Global Score) was successfully performed to identify the optimal segmentation scale (seed) and compactness parameters across the High Mountains, Hills, and Terai regions.</p></li>
 <li><p>Compute the median agricultural probability for each delineated segment.<br>
 <strong>Status:</strong> ⬜<br>
 <strong>Notes:</strong> Median value of the agricultural land probability will be taken based on <span class="citation" data-cites="yinMappingAgriculturalLand2018">Yin et al. (<a href="#ref-yinMappingAgriculturalLand2018" role="doc-biblioref">2018</a>)</span>. This will be used for the final trend analysis</p></li>

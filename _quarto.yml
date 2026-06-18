@@ -10,7 +10,7 @@ website:
         text: Literature Review
       - href: analysis.qmd
         text: Results
-      - href: project_progress.qmd
+      - href: project_progress2.qmd
         text: Project Progress Report
 
 # Move global settings here so they apply to both index.qmd AND analysis.qmd

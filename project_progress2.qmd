@@ -1,6 +1,5 @@
 ---
 title: "📊 Project Progress Report"
-jupyter: gee
 ---
 ####  ✅ Completed | ⚙️ In Progress | ⬜ Not Started | 🟥 Temporarily Halted 
 ## Progress Summary
@@ -8,8 +7,8 @@ jupyter: gee
 | ----------- | ------ | ------------------ |
 | 1. Literature Review | ✅<br> Start: 2025-12-25<br> End: 2026-01-16     | Sufficient literatures were reviewed to establish a robust methodology based on papers mentioned in @gogaReviewApplicationRemote2019 and @liuGlobalReviewMonitoring2025a [Click to visit the central repository for this project](https://github.com/Proghead231/agricultural-land-abandonment-nepal)         |
 | 2. Training Sample Generation for Agriculture Land Probability Classification | ✅<br> Start: 2026-03-30<br>End: 2026-05-27     | Performing multi-temporal phenological filtering on training samples to ensure they consistently exhibit active agricultural signatures (e.g., high NDVI amplitude indicating plow/harvest cycles).                   |
-| 3. Annual Agricultural Land Probability Generation (2000-2022) |  ⬜     |  |
-| 4. Object-Based Image Analysis (OBIA) to Delineate Agricultural Land Objects and Compute Object-Level Probabilities | ⚙️<br> Start: 2026-01-16<br>End:      |                    |
+| 3. Annual Agricultural Land Probability Generation (2000-2022) |  ✅<br> Start: 2026-05-27<br>End: 2026-06-10    | Extracting training data for each year (2000-2022) and performing Random Forest hyperparameter tuning to make the final predictions. |
+| 4. Object-Based Image Analysis (OBIA) to Delineate Agricultural Land Objects and Compute Object-Level Probabilities | ⚙️<br> Start: 2026-01-16<br>End:      | Running parameter tuning using Area-Weighted Variance (ALV) and Moran's I to determine the optimal SNIC segmentation scale. |
 | 5. Trend Analysis of Object-Level Probabilities using LandTrendr to Identify Abandonment and Recultivation | ⬜       |                    |
 
 
@@ -50,10 +49,10 @@ jupyter: gee
     **Notes:** Will perform stratified sampling using the 2022 land cover dataset to ensure the model learns the spectral signatures of all non-cropland classes. Dominant land covers (forest, rangeland, bare soil/sand, water, and built-up areas) will be proportionally represented to minimize confusion errors.
 
 
-### 3. Annual Agricultural Land Probability Generation (2000-2022) ⬜
+### 3. Annual Agricultural Land Probability Generation (2000-2022) ✅
 1.  Using the sample from 2, train the RF model and generate agricultural land probability raster from 2000-2022.  
-    **Status:** ⬜     
-    **Notes**: Different metrics (to be decided) like NDVI, Texture, Phenological metrics will be used in the classifical
+    **Status:** ✅     
+    **Notes**: Extracting Landsat images from 2000-2022, gathering training data, and running Random Forest hyperparameter tuning before generating the final probability rasters.
 
 ### 4. Object-Based Image Analysis (OBIA) to Delineate Agricultural Land Objects and Compute Object-Level Probabilities ⚙️
 1. Create a agricultural land mask from the probability rasters generated in 3.  
@@ -62,7 +61,7 @@ jupyter: gee
     
 2. Segment agricultural lands within the generated mask using multi-temporal Landsat imagery.  
     **Status:** ⚙️  
-    **Notes:** Image Segmentation will be performed on multi-temporal landsat images + terrain images using Simple Non-Iterative Clustering (SNIC) algo in GEE. This is to segment agricultural lands into homogenous objects for further analysis, also reduce salt & pepper effect in the final output.     
+    **Notes:** Image Segmentation is being performed on multi-temporal landsat images + terrain images using Simple Non-Iterative Clustering (SNIC) algo in GEE. Parameter tuning using Area-Weighted Variance (ALV) and Moran's I (Global Score) was successfully performed to identify the optimal segmentation scale (seed) and compactness parameters across the High Mountains, Hills, and Terai regions.
     
 3. Compute the median agricultural probability for each delineated segment.  
     **Status:** ⬜  

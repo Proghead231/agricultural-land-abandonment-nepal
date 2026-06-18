@@ -1,7 +1,5 @@
 import ee
 ee.Initialize(project = "ee-joshisur231")
-print("loaded config!")
-
 SCALE = 30
 PROJ = "EPSG:32645"
 test_roi =     ee.Geometry.MultiPolygon(
@@ -22,6 +20,16 @@ test_roi2 =     ee.Geometry.Polygon(
           [85.04481417876723, 27.6835236717276],
           [85.29475314361098, 27.6835236717276],
           [85.29475314361098, 27.890669285959213]]], None, False)
+test_class =ee.Geometry.Polygon(
+        [[[85.66603677368612, 27.93590111149637],
+          [85.66603677368612, 26.568593636200408],
+          [86.30873696899862, 26.568593636200408],
+          [86.30873696899862, 27.93590111149637]]], None, False)
+test_class2 = ee.Geometry.Polygon(
+        [[[82.58121523790525, 29.534087675244226],
+          [82.58121523790525, 27.49248984292568],
+          [83.32828555040525, 27.49248984292568],
+          [83.32828555040525, 29.534087675244226]]], None, False)
 
 east_terai = ee.FeatureCollection(
         [ee.Feature(
@@ -133,14 +141,14 @@ east_him = ee.FeatureCollection(
             })])
 test_geo = east_terai.merge(east_mount).merge(east_him).merge(central_terai).merge(central_mount).merge(central_him).merge(west_terai).merge(west_mount).merge(west_him)
 
-ROI = ee.FeatureCollection("projects/ee-joshisur231/assets/nepal_province")
-# ROI = test_roi2
+ROI = ee.FeatureCollection("projects/ee-joshisur231/assets/pa_effectiveness/nepal_boundary").geometry()
+
 
 L75_ORIGINAL_BAND_NAMES = ["SR_B1", "SR_B2", "SR_B3", "SR_B4", "SR_B5", "SR_B7"]
-L75_NEW_BAND_NAMES      = ["b", "g", "r", "nir", "swir1", "swir2"]
+L75_NEW_BAND_NAMES      = ["blue", "green", "red", "nir", "swir1", "swir2"]
 L8_ORIGINAL_BAND_NAMES  = ["SR_B2", "SR_B3", "SR_B4", "SR_B5", "SR_B6", "SR_B7"]
-L8_NEW_BAND_NAMES       = ["b", "g", "r", "nir", "swir1", "swir2"]
-L_FINAL_BANDS = ["b", "g", "r", "nir", "swir1", "swir2"]
+L8_NEW_BAND_NAMES       = ["blue", "green", "red", "nir", "swir1", "swir2"]
+L_FINAL_BANDS = ["blue", "green", "red", "nir", "swir1", "swir2"]
 
 LANDSAT_DATES = {
     "2000": ["2000-11-01", "2001-02-28"],

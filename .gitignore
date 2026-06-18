@@ -8,3 +8,17 @@ __pycache__/
 *.pyo
 
 aal_arcgisWS/
+
+
+# Automatically added to exclude large files before push
+*.tif
+*.tiff
+*.zip
+*.tar
+*.gz
+*.pkl
+*.h5
+code/outputs/spatial_data/
+code/outputs/random_forest/saved_models/
+code/outputs/random_forest/saved_rfecv_models/
+temp_ai/

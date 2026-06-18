@@ -1,8 +1,365 @@
 ---
-title: "Results"
-jupyter: gee
+format:
+  revealjs:
+    theme: dark
+    transition: slide
+    slide-number: "c/t"
+    progress: true
+    controls: true
+    controls-layout: edges
+    scrollable: true
+    incremental: false
+    footer: "<a href='index.html'>🏠 Home</a> | <a href='project_progress2.html'>📊 Project Progress</a>"
 ---
 
-![Fig 1: Stable Agricultural Lands FRTC (2000-2022)](images/results/Stable_Agriculture.png){.lightbox}
+## Datasets
 
-![Fig 2: Stable Agricultural Lands Samples After Spatial Thining](images/results/samples_after_thining.png){.lightbox}
+::: {layout-ncol=2}
+![Stable Agricultural Lands FRTC (2000-2022)](images/results/Stable_Agriculture.png){.lightbox}
+
+![Training Samples for Agriculture Land Probability Classification (2000-2022)](images/results/Training_Samples.png){.lightbox}
+:::
+
+## Random Forest Cropland Probability Prediction Results
+
+### 2000
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2000_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2000_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2000_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2000_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2000_spatial_error_map.png){.lightbox}
+:::
+
+### 2001
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2001_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2001_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2001_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2001_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2001_spatial_error_map.png){.lightbox}
+:::
+
+### 2002
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2002_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2002_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2002_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2002_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2002_spatial_error_map.png){.lightbox}
+:::
+
+### 2003
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2003_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2003_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2003_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2003_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2003_spatial_error_map.png){.lightbox}
+:::
+
+### 2004
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2004_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2004_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2004_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2004_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2004_spatial_error_map.png){.lightbox}
+:::
+
+### 2005
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2005_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2005_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2005_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2005_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2005_spatial_error_map.png){.lightbox}
+:::
+
+### 2006
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2006_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2006_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2006_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2006_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2006_spatial_error_map.png){.lightbox}
+:::
+
+### 2007
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2007_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2007_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2007_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2007_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2007_spatial_error_map.png){.lightbox}
+:::
+
+### 2008
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2008_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2008_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2008_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2008_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2008_spatial_error_map.png){.lightbox}
+:::
+
+### 2009
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2009_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2009_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2009_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2009_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2009_spatial_error_map.png){.lightbox}
+:::
+
+### 2010
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2010_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2010_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2010_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2010_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2010_spatial_error_map.png){.lightbox}
+:::
+
+### 2011
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2011_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2011_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2011_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2011_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2011_spatial_error_map.png){.lightbox}
+:::
+
+### 2012
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2012_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2012_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2012_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2012_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2012_spatial_error_map.png){.lightbox}
+:::
+
+### 2013
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2013_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2013_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2013_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2013_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2013_spatial_error_map.png){.lightbox}
+:::
+
+### 2014
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2014_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2014_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2014_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2014_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2014_spatial_error_map.png){.lightbox}
+:::
+
+### 2015
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2015_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2015_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2015_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2015_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2015_spatial_error_map.png){.lightbox}
+:::
+
+### 2016
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2016_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2016_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2016_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2016_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2016_spatial_error_map.png){.lightbox}
+:::
+
+### 2017
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2017_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2017_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2017_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2017_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2017_spatial_error_map.png){.lightbox}
+:::
+
+### 2018
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2018_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2018_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2018_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2018_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2018_spatial_error_map.png){.lightbox}
+:::
+
+### 2019
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2019_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2019_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2019_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2019_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2019_spatial_error_map.png){.lightbox}
+:::
+
+### 2020
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2020_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2020_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2020_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2020_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2020_spatial_error_map.png){.lightbox}
+:::
+
+### 2021
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2021_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2021_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2021_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2021_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2021_spatial_error_map.png){.lightbox}
+:::
+
+### 2022
+
+::: {layout-ncol=5}
+![RFECV Performance](temp_ai/plots/2022_rfecv_performance_curve.png){.lightbox}
+
+![Feature Importance](temp_ai/plots/2022_feature_importance_bar.png){.lightbox}
+
+![Model Confidence](temp_ai/plots/2022_model_confidence_distribution.png){.lightbox}
+
+![Confusion Matrix](temp_ai/plots/2022_confusion_matrix_heatmap.png){.lightbox}
+
+![Spatial Error Map](temp_ai/plots/2022_spatial_error_map.png){.lightbox}
+:::
+
+## Land Cover (FRTC) Trajectory Approach Results
+
+::: {layout-ncol=2}
+![Total Agriculture by Elevation](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Fig1 Total agriculture by elevation.png){.lightbox}
+
+![Composition of Agricultural Change by Elevation](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Fig2 Composition of agricultural change by elevation.png){.lightbox}
+
+![Timeline of Abandonment and Recultivation Events](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Fig3 Timeline of abandonment and Recultivation events.png){.lightbox}
+
+![Gross Agricultural Loss vs Gain by Elevation](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Fig4 Gross agricultural loss vs gain by elevation.png){.lightbox}
+
+![Stable Agriculture Map](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Map1 stable agriculture.png){.lightbox}
+
+![Abandonment Map](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Map2 abandonment.png){.lightbox}
+
+![Recultivation Map](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Map3 recultivation.png){.lightbox}
+
+![New Agriculture Expansion Map](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Map4 new agriculture expansion.png){.lightbox}
+:::

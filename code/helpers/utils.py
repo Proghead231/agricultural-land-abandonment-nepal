@@ -1,7 +1,7 @@
 import ee
 import numpy as np
 ee.Initialize(project = "ee-joshisur231")
-print("loaded utils!")
+
 def mask_clouds_landsat75(image):
   dilatedCloudBitMask = (1 << 1)
   cloudBitMask = (1 << 3)
@@ -116,13 +116,13 @@ def calc_image_stats(image, roi, scale):
 
 def add_scaled_glcm(image, roi, scale, high_val):
     #Here reproject is critical to force the glcm to be calculated at 30 because the composite are in wgs84 by default
-    glcm_image = image.select("nir")\
+    glcm_image = image.select("ndvi")\
         .reproject(crs="EPSG:32645", scale=30)\
         .multiply(100).int32()\
-        .glcmTexture(size=1, average=True).select(["nir_savg", "nir_shade"])
+        .glcmTexture(size=1, average=True).select(["ndvi_savg", "ndvi_shade"])
     min_max_val = glcm_image.reduceRegion(geometry = roi, reducer = ee.Reducer.minMax(), scale = scale, maxPixels = 1e13)
-    rescaled_savg = glcm_image.select("nir_savg").unitScale(ee.Number(min_max_val.get("nir_savg_min")), ee.Number(min_max_val.get("nir_savg_max"))).clamp(0, 1).multiply(high_val)
-    rescaled_shade = glcm_image.select("nir_shade").unitScale(ee.Number(min_max_val.get("nir_shade_min")), ee.Number(min_max_val.get("nir_shade_max"))).clamp(0, 1).multiply(high_val)
+    rescaled_savg = glcm_image.select("ndvi_savg").unitScale(ee.Number(min_max_val.get("ndvi_savg_min")), ee.Number(min_max_val.get("ndvi_savg_max"))).clamp(0, 1).multiply(high_val)
+    rescaled_shade = glcm_image.select("ndvi_shade").unitScale(ee.Number(min_max_val.get("ndvi_shade_min")), ee.Number(min_max_val.get("ndvi_shade_max"))).clamp(0, 1).multiply(high_val)
 
     return image.addBands(rescaled_savg).addBands(rescaled_shade)
 

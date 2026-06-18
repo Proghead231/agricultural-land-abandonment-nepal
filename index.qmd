@@ -1,6 +1,5 @@
 ---
 title: "Agricultural Land Abandonment in Nepal"
-jupyter: gee
 ---
 
 **Problem:** Identify abandoned agricultural lands (AAL) in Nepal.
@@ -440,3 +439,17 @@ After getting the consensus stable cropland, erosion and expansion and spatial f
  Therefore if overall_amplitude < 0.55 or overall_min > 0.25 discard as rangeland. This worked and my accuracy reached 83%.
 
  5. I did not have to do the same for the stable non-crop because I got 98% accuracy on the first try. I anly used the land cover information to identify the relationship for different classes. Still I had to hit and trial for the right threshold.
+### Note on Stable Non-Crop Phenology Filtering Adjustment
+An initial strict phenology filter yielded 1,282 stable non-crop points, which achieved a 97% accuracy via manual visual interpretation of a 10% random sample in Google Earth. However, this strict thresholding systematically discarded natural rangelands due to their low winter NDVI baseline. To correct this under-representation, we applied a 5th/95th percentile adjustment to the phenology bounds (overall_min = quantile(0.05) and overall_max = quantile(0.95)) and relaxed the valid observation requirement from 200 to 150 for cloud-prone regions. This successfully rescued an additional 1,274 points (predominantly rangelands and sparse vegetation). To ensure this algorithmic adjustment did not introduce agricultural false positives, we conducted a targeted validation on a random sample of the rescued points, achieving a visual accuracy of XX%. The combined, verified dataset of 2,556 points was then utilized for model training.
+
+### Note on SNIC segmentation
+Images were acquired for following dates.
+1. Post-Monsoon (October–November) Rainfall is significantly reduced and skies begin to clear during this period
+. Acquiring imagery during these months is critical for capturing the maturity and harvest stages of Nepal's primary summer crops, such as main season rice and millet, which are typically planted between June and August and harvested between October and November
+.
+2. Winter (December–February) This season offers the most reliable conditions for optical remote sensing in Nepal due to clear skies and very little precipitation
+. Images from these months will allow the segmentation algorithm to delineate fields used for winter crops, such as wheat, potato, and buckwheat, which are planted from November to January and harvested into the spring
+.
+3. Pre-Monsoon (March–May) While the weather becomes hotter with some scattered rainfall, this window is necessary to capture the boundaries of spring crops
+. Maize and spring rice are typically planted between February and April and harvested in June or July
+.
