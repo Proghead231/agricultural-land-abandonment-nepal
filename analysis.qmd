@@ -363,3 +363,18 @@ format:
 
 ![New Agriculture Expansion Map](code/outputs/abandonment_results/land_cover_trajectory_approach/figure and maps/Map4 new agriculture expansion.png){.lightbox}
 :::
+
+### Data Tables
+
+::: {.panel-tabset}
+
+#### Elevation Results
+<iframe data-src="tables/table1.html" width="100%" height="450px" style="border:none; background:#222;"></iframe>
+
+#### Yearly Elevations
+<iframe data-src="tables/table2.html" width="100%" height="450px" style="border:none; background:#222;"></iframe>
+
+#### District-wise Results
+<iframe data-src="tables/table3.html" width="100%" height="450px" style="border:none; background:#222;"></iframe>
+
+:::

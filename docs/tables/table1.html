@@ -1,0 +1,126 @@
+<!DOCTYPE html><html><head><script type="module">import {DataTable} from "https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/module/index.js";</script><link href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css" rel="stylesheet"></head><body style="background-color: #222; color: #fff;"><!--| quarto-html-table-processing: none -->
+<table id="itables_077fbc57_5a53_4b2e_832e_f1efc874c4ed">
+  <tbody>
+    <tr>
+      <td style="vertical-align:middle; text-align:left"><a href=https://mwouts.github.io/itables/><svg class="main-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+width="64" viewBox="0 0 500 400" style="font-family: 'Droid Sans', sans-serif;">
+    <g style="fill:#d9d7fc">
+        <path d="M100,400H500V357H100Z" />
+        <path d="M100,300H400V257H100Z" />
+        <path d="M0,200H400V157H0Z" />
+        <path d="M100,100H500V57H100Z" />
+        <path d="M100,350H500V307H100Z" />
+        <path d="M100,250H400V207H100Z" />
+        <path d="M0,150H400V107H0Z" />
+        <path d="M100,50H500V7H100Z" />
+    </g>
+    <g style="fill:#1a1366;stroke:#1a1366;">
+   <rect x="100" y="7" width="400" height="43">
+    <animate
+      attributeName="width"
+      values="0;400;0"
+      dur="5s"
+      repeatCount="indefinite" />
+      <animate
+      attributeName="x"
+      values="100;100;500"
+      dur="5s"
+      repeatCount="indefinite" />
+  </rect>
+        <rect x="0" y="107" width="400" height="43">
+    <animate
+      attributeName="width"
+      values="0;400;0"
+      dur="3.5s"
+      repeatCount="indefinite" />
+    <animate
+      attributeName="x"
+      values="0;0;400"
+      dur="3.5s"
+      repeatCount="indefinite" />
+  </rect>
+        <rect x="100" y="207" width="300" height="43">
+    <animate
+      attributeName="width"
+      values="0;300;0"
+      dur="3s"
+      repeatCount="indefinite" />
+    <animate
+      attributeName="x"
+      values="100;100;400"
+      dur="3s"
+      repeatCount="indefinite" />
+  </rect>
+        <rect x="100" y="307" width="400" height="43">
+    <animate
+      attributeName="width"
+      values="0;400;0"
+      dur="4s"
+      repeatCount="indefinite" />
+      <animate
+      attributeName="x"
+      values="100;100;500"
+      dur="4s"
+      repeatCount="indefinite" />
+  </rect>
+        <g style="fill:transparent;stroke-width:8; stroke-linejoin:round" rx="5">
+            <g transform="translate(45 50) rotate(-45)">
+                <circle r="33" cx="0" cy="0" />
+                <rect x="-8" y="32" width="16" height="30" />
+            </g>
+
+            <g transform="translate(450 152)">
+                <polyline points="-15,-20 -35,-20 -35,40 25,40 25,20" />
+                <rect x="-15" y="-40" width="60" height="60" />
+            </g>
+
+            <g transform="translate(50 352)">
+                <polygon points="-35,-5 0,-40 35,-5" />
+                <polygon points="-35,10 0,45 35,10" />
+            </g>
+
+            <g transform="translate(75 250)">
+                <polyline points="-30,30 -60,0 -30,-30" />
+                <polyline points="0,30 -30,0 0,-30" />
+            </g>
+
+            <g transform="translate(425 250) rotate(180)">
+                <polyline points="-30,30 -60,0 -30,-30" />
+                <polyline points="0,30 -30,0 0,-30" />
+            </g>
+        </g>
+    </g>
+</svg>
+</a>
+        Loading ITables v2.8.1 from the internet...
+        (need <a href=https://mwouts.github.io/itables/troubleshooting.html>help</a>?)
+      </td>
+    </tr>
+  </tbody>
+</table>
+<link href="https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.css" rel="stylesheet">
+<script type="module">
+    import { ITable, jQuery as $ } from 'https://www.unpkg.com/dt_for_itables@2.5.5/dt_bundle.js';
+
+    document.querySelectorAll("#itables_077fbc57_5a53_4b2e_832e_f1efc874c4ed:not(.dataTable)").forEach(table => {
+        if (!(table instanceof HTMLTableElement))
+            return;
+
+        let dt_args = {
+          "classes": ["display"],
+          "columnDefs": [{"render": "function (data, type, row, meta) { return type === 'sort' || type === 'type' ? data[1] : data[0]; }", "targets": [1, 2, 3, 4, 5, 6, 7]}],
+          "data_json": "[[\"0 - 1000m\", [\"2.296312e+06\", 2296312.119], [\"245237.332200\", 245237.3322], [\"199491.436900\", 199491.4369], [\"45745.895290\", 45745.89529], [\"104007.23080\", 104007.2308], [\"7.540622\", 7.540622293], [\"18.653724\", 18.65372408]], [\"1000 - 2000m\", [\"1.136940e+06\", 1136940.003], [\"271934.360500\", 271934.3605], [\"232920.990000\", 232920.99], [\"39013.370470\", 39013.37047], [\"81641.74447\", 81641.74447], [\"15.626868\", 15.62686836], [\"14.346613\", 14.34661306]], [\"2000 - 3000m\", [\"2.878928e+05\", 287892.8104], [\"44843.464590\", 44843.46459], [\"35040.165180\", 35040.16518], [\"9803.299412\", 9803.299412], [\"48302.12259\", 48302.12259], [\"9.195967\", 9.195966969], [\"21.861155\", 21.86115525]], [\"3000 - 4000m\", [\"6.006840e+04\", 60068.40212], [\"1687.376118\", 1687.376118], [\"748.233882\", 748.2338824], [\"939.142235\", 939.1422353], [\"15851.93471\", 15851.93471], [\"0.964123\", 0.964123093], [\"55.656959\", 55.65695908]], [\"4000 - 5000m\", [\"1.505737e+03\", 1505.737412], [\"49.860000\", 49.86], [\"43.560000\", 43.56], [\"6.300000\", 6.3], [\"119.07000\", 119.07], [\"2.601113\", 2.601113492], [\"12.635379\", 12.63537906]], [\"5000 - 6000m\", [\"3.780000e+00\", 3.78], [\"0.720000\", 0.72], [\"0.720000\", 0.72], [\"0.000000\", 0.0], [\"0.00000\", 0.0], [\"16.000000\", 16.0], [\"0.000000\", 0.0]], [\"6000 - 7000m\", [\"0.000000e+00\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0], [\"0.00000\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0]], [\"7000 - 8000m\", [\"0.000000e+00\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0], [\"0.00000\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0]], [\"8000 - 9000m\", [\"0.000000e+00\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0], [\"0.00000\", 0.0], [\"0.000000\", 0.0], [\"0.000000\", 0.0]]]",
+          "keys_to_be_evaluated": [["columnDefs", 0, "render"]],
+          "layout": {"bottomEnd": null, "bottomStart": null, "topEnd": null, "topStart": null},
+          "order": [],
+          "paging": true,
+          "scrollX": true,
+          "scrollY": "400px",
+          "style": {"caption-side": "bottom", "margin": "0", "table-layout": "auto", "width": "auto"},
+          "table_html": "<table><thead>\n    <tr style=\"text-align: right;\">\n      \n      <th>Elevation_Bin</th>\n      <th>Stable_Ag_Area_ha</th>\n      <th>Total_Abandoned_ha</th>\n      <th>Permanently_Abandoned_ha</th>\n      <th>Recultivated_ha</th>\n      <th>New_Ag_Expansion_ha</th>\n      <th>Abandoned_Percent</th>\n      <th>Recultivated_Percent_of_Abandonment</th>\n    </tr>\n  </thead></table>",
+          "text_in_header_can_be_selected": true
+        };
+        new ITable(table, dt_args);
+    });
+</script>
+</body></html>
